@@ -1,5 +1,5 @@
 import React from "react";
-import avatarImg from "../assets/rahul334.jpg";
+import avatarImg from "../assets/rahul.jpg";
 
 function Home() {
   return (
