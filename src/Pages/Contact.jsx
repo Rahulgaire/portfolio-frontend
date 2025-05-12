@@ -24,7 +24,7 @@ function Contact() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-yellow-500" />
-                <span>+91 8427384685</span>
+                <span>+91 84273846xx</span>
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-yellow-500" />
