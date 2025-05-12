@@ -17,7 +17,7 @@ function Home() {
         </button>
       </div>
       <div className="ml-10">
-        <img src={avatarImg} alt="" className="w-3/5 rounded-4xl  " />
+        <img src={avatarImg} alt="" className="md:w-3/5 sm:w-full rounded-4xl  " />
       </div>
     </div>
   );
