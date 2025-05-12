@@ -1,23 +1,29 @@
 import React from "react";
-import avatarImg from '../assets/rahul334.jpg'; // relative path from Home.jsx
+import avatarImg from "../assets/rahul334.jpg";
+
 function Home() {
   return (
-    <div className="text-white flex w-full justify-between item-start p-10 md:p-20 ">
-      <div className="md:w-1/2 md:pt-10">
-        <h1 className="text-3xl md:text-6xl flex font-bold leading-normal tracking-tighter ">
-          Hello I am Rahul.
-        </h1>
-        <p className="text-sm md:text-2xl tracking-tight ">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere quasi
-          officiis consequatur consequuntur illum nesciunt perferendis totam
-          assumenda, eos pariatur tempore, dolorum unde delectus suscipit?
-        </p>
-        <button className="mt-5 md:mt-10 px-3 border rounded-3xl py-2  bg-[#465697] text-white font-bold flex justify-center  hover:opacity-85 duration-300 hover:scale-105 cursor-pointer">
-          Contact Me
-        </button>
-      </div>
-      <div className="ml-10">
-        <img src={avatarImg} alt="" className="md:w-3/5 sm:w-full rounded-4xl  " />
+    <div className="bg-gray-900 text-white px-6 md:px-16 py-12">
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-screen-xl mx-auto gap-10">
+        <div className="w-full md:w-1/2">
+          <h1 className="text-3xl md:text-6xl font-bold leading-tight tracking-tight">
+            Hello, I am Rahul.
+          </h1>
+          <p className="text-base md:text-xl mt-4 text-gray-300">
+            I'm a passionate MERN stack developer currently interning at Ansh Infotech. I love building full-stack web applications that are both functional and beautiful.
+          </p>
+          <button className="mt-6 px-6 py-3 bg-[#465697] text-white font-semibold rounded-full hover:opacity-90 hover:scale-105 transition duration-300">
+            Contact Me
+          </button>
+        </div>
+
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+          <img
+            src={avatarImg}
+            alt="Rahul's profile"
+            className="w-60 md:w-80 rounded-2xl shadow-lg object-cover"
+          />
+        </div>
       </div>
     </div>
   );
