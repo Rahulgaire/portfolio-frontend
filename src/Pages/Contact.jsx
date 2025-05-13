@@ -1,39 +1,63 @@
-import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import React, { useState } from "react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 function Contact() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(`Field changed: ${name} = ${value}`);
+    setForm(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post("http://localhost:3000/api/", form);
+      toast.success(data.message || "Message sent successfully!");
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      toast.error(error.response?.data?.message || "Failed to send message.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-start py-12 px-4">
+      <Toaster position="top-right" />
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white mb-4 text-center">
         Contact Me
       </h1>
-
       <p className="text-gray-300 text-center max-w-2xl mb-10">
         Have a project in mind or just want to say hi? Feel free to drop a message — I’ll get back to you as soon as possible!
       </p>
-
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Contact Info + Map */}
         <div className="bg-gray-800 p-6 rounded-xl shadow-lg text-white space-y-6">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-yellow-500" />
-                <span>gairerahul334@outlook.com</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-yellow-500" />
-                <span>+91 84273846xx</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-yellow-500" />
-                <span>Krishna Nagar, Ludhiana, Punjab, 141001</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Embedded Google Map */}
+          <h2 className="text-2xl font-semibold">Contact Information</h2>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <Mail className="w-5 h-5 text-yellow-500" />
+              <span>gairerahul334@outlook.com</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <Phone className="w-5 h-5 text-yellow-500" />
+              <span>+91 84273846xx</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <MapPin className="w-5 h-5 text-yellow-500" />
+              <span>Krishna Nagar, Ludhiana, Punjab, 141001</span>
+            </li>
+          </ul>
           <div className="w-full">
             <iframe
               title="Google Map"
@@ -41,63 +65,45 @@ function Contact() {
               width="100%"
               height="300"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg"
-            ></iframe>
+            />
           </div>
         </div>
-
-        {/* Contact Form */}
         <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
-          <form className="flex flex-col gap-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            {["name","email","subject"].map(field => (
+              <div key={field}>
+                <label htmlFor={field} className="block text-sm font-semibold text-white">
+                  {field.charAt(0).toUpperCase() + field.slice(1)}
+                </label>
+                <input
+                  type={field === "email" ? "email" : "text"}
+                  id={field}
+                  name={field}
+                  value={form[field]}
+                  onChange={handleChange}
+                  className="w-full mt-2 rounded-md bg-gray-100 px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+                />
+              </div>
+            ))}
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-white">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                className="w-full mt-2 rounded-md bg-gray-100 px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                placeholder="Your Name"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-white">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full mt-2 rounded-md bg-gray-100 px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                placeholder="Your Email"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="subject" className="block text-sm font-semibold text-white">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                className="w-full mt-2 rounded-md bg-gray-100 px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                placeholder="Subject"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-white">Message</label>
+              <label htmlFor="message" className="block text-sm font-semibold text-white">
+                Message
+              </label>
               <textarea
                 id="message"
                 name="message"
                 rows="4"
+                value={form.message}
+                onChange={handleChange}
                 className="w-full mt-2 rounded-md bg-gray-100 px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 placeholder="Your Message"
-              ></textarea>
+              />
             </div>
-
             <button
               type="submit"
               className="w-full rounded-md bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 transition"
