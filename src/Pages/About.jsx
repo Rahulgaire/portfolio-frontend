@@ -10,19 +10,20 @@ const About = () => {
     >
       {/* Left Side - Image and CV Button */}
       <div className="w-full md:w-1/2 text-center md:text-left">
-        <h2 className="text-3xl md:text-5xl font-bold font-serif mb-6">
+        <h2 className="text-3xl md:text-5xl font-bold font-serif mb-6 sm:mb-4">
           About
         </h2>
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center sm:mt-2 md:items-start">
           <img
             className="h-64 w-64 rounded-full shadow-lg mb-6"
             src={avatar}
-            alt="Profile"
+            alt="Profile picture of Rahul Gaire"
           />
           <a
             href={cv}
-            download
-            className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-300"
+            download="RahulGaireCV.pdf"
+            className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            aria-label="Download Rahul Gaire's CV"
           >
             Download CV
           </a>
@@ -33,7 +34,7 @@ const About = () => {
       <div className="w-full md:w-1/2 mt-8 md:mt-0">
         <ul className="space-y-6">
           <li className="flex gap-4 items-start">
-            <IoArrowForward size={30} className="text-amber-500" />
+            <IoArrowForward size={30} className="text-amber-500" aria-hidden="true" />
             <div>
               <h1 className="text-xl md:text-2xl font-semibold leading-normal">
                 Frontend Developer
@@ -47,7 +48,7 @@ const About = () => {
             </div>
           </li>
           <li className="flex gap-4 items-start">
-            <IoArrowForward size={30} className="text-amber-500" />
+            <IoArrowForward size={30} className="text-amber-500" aria-hidden="true" />
             <div>
               <h1 className="text-xl md:text-2xl font-semibold leading-normal">
                 Database Developer
@@ -59,7 +60,7 @@ const About = () => {
             </div>
           </li>
           <li className="flex gap-4 items-start">
-            <IoArrowForward size={30} className="text-amber-500" />
+            <IoArrowForward size={30} className="text-amber-500" aria-hidden="true" />
             <div>
               <h1 className="text-xl md:text-2xl font-semibold leading-normal">
                 Backend Developer

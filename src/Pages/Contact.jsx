@@ -47,11 +47,12 @@ function Contact() {
           <ul className="space-y-4">
             <li className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-yellow-500" />
-              <span>gairerahul334@outlook.com</span>
+              <span><a href="mailto:gairerahul334@outlook.com">gairerahul334@outlook.com</a>
+</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-yellow-500" />
-              <span>+91 84273846xx</span>
+              <span><a href="tel:+917347349556">+91 73473495xx</a></span>
             </li>
             <li className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-yellow-500" />
