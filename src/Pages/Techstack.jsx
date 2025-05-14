@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGithub } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiTailwindcss, SiJavascript, SiMysql } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiTailwindcss, SiJavascript, SiMysql,SiPostman  } from 'react-icons/si';
 
 const techs = [
   { icon: <FaHtml5 />, name: 'HTML5' },
@@ -13,6 +13,7 @@ const techs = [
   { icon: <SiMysql />, name: 'MySQL' },
   { icon: <SiTailwindcss />, name: 'Tailwind CSS' },
   { icon: <FaGithub />, name: 'Git & GitHub' },
+  { icon: <SiPostman  />, name: 'Postman' },
 ];
 
 const TechStack = () => {

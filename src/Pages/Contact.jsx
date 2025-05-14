@@ -23,7 +23,7 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:3000/api/", form);
+      const { data } = await axios.post("http://localhost:3000/api/contact", form);
       toast.success(data.message || "Message sent successfully!");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
@@ -107,7 +107,7 @@ function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full rounded-md bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 transition"
+              className="w-full rounded-md bg-yellow-500 hover:bg-yellow-600 text-black cursor-pointer font-semibold px-4 py-2 transition"
             >
               Send Message
             </button>
