@@ -23,7 +23,7 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:3000/api/contact", form);
+      const { data } = await axios.post("https://portfolio-backend-zky9.onrender.com/api/contact", form);
       toast.success(data.message || "Message sent successfully!");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
