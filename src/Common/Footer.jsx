@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-   <footer class="flex flex-col space-y-10 justify-center m-10 font-serif">
+   <footer class="flex flex-col space-y-10 justify-center m-10 font-serif bg-blue-1100">
 
     <nav class="flex justify-center flex-wrap gap-6 text-white font-medium">
         <a class="hover:text-yellow-500" href="#">Home</a>

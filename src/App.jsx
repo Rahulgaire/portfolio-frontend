@@ -6,6 +6,7 @@ import Contact from './Pages/Contact';
 import { Toaster } from 'react-hot-toast';
 import TechStack from './Pages/Techstack';
 import Footer from './Common/Footer';
+import Projects from './Pages/Projects';
 const App = () => {
   return (
     <div className="bg-[#171d32] w-full overflow-x-hidden">
@@ -13,6 +14,7 @@ const App = () => {
       <Home />
       <About />
       <TechStack/>
+      <Projects/>
       <Contact />
       <Footer/>
       <Toaster position="top-right" />
