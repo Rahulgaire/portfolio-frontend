@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function Contact() {
   const [form, setForm] = useState({
