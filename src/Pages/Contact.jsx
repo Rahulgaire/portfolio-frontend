@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 axios.defaults.withCredentials = true;
 
 function Contact() {
@@ -31,9 +32,12 @@ function Contact() {
       setloading(false)
     }
   };
+const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-start py-12 px-4">
+    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-start py-12 px-4" id="contact">
       <Toaster position="top-right" />
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white mb-4 text-center">
         Contact Me
@@ -122,6 +126,13 @@ function Contact() {
           </form>
         </div>
       </div>
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-4 right-4 px-4 py-2 bg-white text-black rounded-full hover:bg-gray-400 transition shadow-lg"
+        aria-label="Scroll to top"
+      >
+        <MdKeyboardDoubleArrowUp size={24} />
+      </button>
     </div>
   );
 }

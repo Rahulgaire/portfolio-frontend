@@ -5,7 +5,7 @@ import cv from "../assets/RahulGaireCV.pdf";
 const About = () => {
   return (
     <div
-      id="About"
+      id="about"
       className="text-white flex flex-col md:flex-row overflow-hidden items-center justify-center bg-black shadow-2xl mx-4 md:mx-20 bg-opacity-50 rounded-xl p-8 md:p-12"
     >
       {/* Left Side - Image and CV Button */}

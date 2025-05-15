@@ -14,8 +14,16 @@ function Home() {
             responsive, and user-friendly web applications. I enjoy turning
             ideas into real-world digital experiences.
           </p>
-          <button className="mt-6 px-6 py-3 bg-[#465697] text-white font-semibold rounded-full hover:opacity-90 hover:scale-105 transition duration-300">
-            <a href="/contact">Contact Me</a>
+          <button
+            className="mt-6 px-6 py-3 bg-[#465697] text-white font-semibold rounded-full hover:opacity-80 hover:scale-110 transform transition-transform duration-300 ease-in-out"
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            Contact Me
           </button>
         </div>
 
