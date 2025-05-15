@@ -5,6 +5,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function Contact() {
+  const [loading , setloading] = useState(false)
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -19,12 +20,15 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setloading(true)
     try {
       const { data } = await axios.post("https://portfolio-backend-bsw3.onrender.com/api/contact",form);
       toast.success(data.message || "Message sent successfully!");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to send message.");
+    }finally{
+      setloading(false)
     }
   };
 
@@ -109,10 +113,11 @@ function Contact() {
               />
             </div>
             <button
+            disabled={loading}
               type="submit"
               className="w-full rounded-md bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 transition"
             >
-              Send Message
+              {loading ? "Message sending" :"Send message"}
             </button>
           </form>
         </div>
