@@ -29,7 +29,7 @@ const Roadmap = () => {
   ];
 
   return (
-    <section className="px-6 py-12 md:px-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+    <section className="px-6 py-12 md:px-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-300 w-full">
       <div className="flex items-center gap-3 mb-6">
         <HiLightningBolt className="text-yellow-500 w-7 h-7" />
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white">My Roadmap</h2>

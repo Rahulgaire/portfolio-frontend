@@ -1,15 +1,67 @@
 import React from 'react'
 
 function Footer() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
    <footer class="flex flex-col space-y-10 justify-center m-10 font-serif bg-blue-1100">
 
     <nav class="flex justify-center flex-wrap gap-6 text-white font-medium">
-        <a class="hover:text-yellow-500" href="#">Home</a>
-        <a class="hover:text-yellow-500" href="#">About</a>
-        <a class="hover:text-yellow-500" href="#">Experience</a>
-        <a class="hover:text-yellow-500" href="#">Projects</a>
-        <a class="hover:text-yellow-500" href="#">Contact</a>
+        <a
+          class="hover:text-yellow-500"
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('home');
+          }}
+        >
+          Home
+        </a>
+        <a
+          class="hover:text-yellow-500"
+          href="#about"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('about');
+          }}
+        >
+          About
+        </a>
+        <a
+          class="hover:text-yellow-500"
+          href="#experience"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('experience');
+          }}
+        >
+          Experience
+        </a>
+        <a
+          class="hover:text-yellow-500"
+          href="#projects"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('projects');
+          }}
+        >
+          Projects
+        </a>
+        <a
+          class="hover:text-yellow-500"
+          href="#contact"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('contact');
+          }}
+        >
+          Contact
+        </a>
     </nav>
 
     <div class="flex justify-center space-x-5">
