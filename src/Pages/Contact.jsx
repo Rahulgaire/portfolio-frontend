@@ -21,18 +21,20 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setloading(true)
+    setloading(true);
     try {
-      const { data } = await axios.post("https://portfolio-backend-bsw3.onrender.com/api/contact",form);
+      const { data } = await axios.post("https://portfolio-backend-bsw3.onrender.com/api/contact", form);
       toast.success(data.message || "Message sent successfully!");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      toast.error(error.response?.data?.message || "Failed to send message.");
-    }finally{
-      setloading(false)
+      const errorMessage = error.response?.data?.message || "Failed to send message.";
+      toast.error(errorMessage);
+    } finally {
+      setloading(false);
     }
   };
-const scrollToTop = () => {
+
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
@@ -99,6 +101,7 @@ const scrollToTop = () => {
                   onChange={handleChange}
                   placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
                   className="w-full mt-2 rounded-md bg-gray-100 px-4 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  
                 />
               </div>
             ))}
