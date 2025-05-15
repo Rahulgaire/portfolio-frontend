@@ -28,6 +28,13 @@ const projects = [
     tech: ['HTML', 'Tailwind CSS', 'JavaScript'],
     github: 'https://github.com/Rahulgaire/todolist.git',
     demo: '#'
+  },
+  {
+    title: 'Match Game',
+    description: 'A dynamic React-powered todo/wishes app featuring animations, image uploads, and persistent storage.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/Rahulgaire/todolist.git',
+    demo: 'https://match-game-delta.vercel.app/'
   }
 ];
 

@@ -2,21 +2,26 @@ import React from 'react';
 import Navbar from './Common/Navbar';
 import Home from './Pages/Home';
 import About from './Pages/About';
-import Contact from './Pages/Contact';
-import { Toaster } from 'react-hot-toast';
 import TechStack from './Pages/Techstack';
-import Footer from './Common/Footer';
 import Projects from './Pages/Projects';
+import Experience from './Pages/Experience';
+import Roadmap from './Pages/Roadmap';
+import Contact from './Pages/Contact';
+import Footer from './Common/Footer';
+import { Toaster } from 'react-hot-toast';
+
 const App = () => {
   return (
     <div className="bg-[#171d32] w-full overflow-x-hidden">
       <Navbar />
       <Home />
       <About />
-      <TechStack/>
-      <Projects/>
+      <TechStack />
+      <Experience />
+      <Projects />
+      <Roadmap />
       <Contact />
-      <Footer/>
+      <Footer />
       <Toaster position="top-right" />
     </div>
   );
