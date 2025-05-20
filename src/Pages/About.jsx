@@ -1,7 +1,7 @@
 import React from "react";
 import { IoArrowForward } from "react-icons/io5";
 import avatar from "../assets/7358653-removebg-preview.png";
-import cv from "../assets/RahulGaireCV.pdf";
+import cv from "../assets/ResumeRahulGaire.pdf";
 const About = () => {
   return (
     <div
