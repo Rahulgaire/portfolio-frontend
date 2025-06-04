@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGithub } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiTailwindcss, SiJavascript, SiMysql,SiPostman  } from 'react-icons/si';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const techs = [
   { icon: <FaHtml5 />, name: 'HTML5' },
@@ -15,18 +17,25 @@ const techs = [
   { icon: <FaGithub />, name: 'Git & GitHub' },
   { icon: <SiPostman  />, name: 'Postman' },
 ];
+ 
 
 const TechStack = () => {
+   useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms  
+   // whether animation should happen only once
+    });
+  }, []);
   return (
     <>
-    <section id="techstack" className="py-16 bg-gray-800 text-white">
+    <section id="techstack"  className="py-16 bg-gray-800 text-white" >
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="text-4xl font-bold mb-10 text-center text-white">Tech Stack</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {techs.map((tech, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-white hover:text-[#00d9ff] transition duration-300"
+              className="flex flex-col items-center text-white hover:text-[#00d9ff] transition duration-300"  data-aos="fade-left"
             >
               <div className="text-4xl mb-2">{tech.icon}</div>
               <span className="text-sm font-medium">{tech.name}</span>
